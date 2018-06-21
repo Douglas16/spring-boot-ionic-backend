@@ -2,13 +2,21 @@ package com.cursomc.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Categoria implements Serializable //convertidos para uma sequencia de byte, rede, arquivos
-//exigencia do java
+//exência do java
 {
 	
 	//ATRIBUTOS BASICOS
 	
 	private static final long serialVersionUID = 1L; //serializer padrao
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY) //CUIDAR TIPO BANCO
 	private Integer id;
 	private String nome;
 
