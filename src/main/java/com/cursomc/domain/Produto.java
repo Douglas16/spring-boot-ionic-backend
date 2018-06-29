@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 //01 -> ATRIBUTOS 
 //07 --> MAPEAR O JPA COM O @ENTITY @ID E IDENTITY
 @Entity
@@ -24,7 +26,8 @@ public class Produto implements Serializable{ //06 -> IMPLEMENTA O SERIALIZE
 	private String nome;
 	private Double preco;
 	
-	//02 --> AASOCIAÇÃO
+	//02 --> ASSOCIAÇÃO
+	@JsonBackReference
 	@ManyToMany
 	@JoinTable(name="PRODUTO_CATEGORIA",
 		joinColumns= @JoinColumn(name = "produto_id"),
