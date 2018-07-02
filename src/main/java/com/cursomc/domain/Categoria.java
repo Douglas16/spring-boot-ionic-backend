@@ -25,7 +25,7 @@ public class Categoria implements Serializable //convertidos para uma sequencia 
 	private Integer id;
 	private String nome;
 	//referencia json pacote jackson objetos associados
-	@JsonManagedReference
+	
 	@ManyToMany(mappedBy="categorias")
 	private List<Produto> produtos = new ArrayList<>(); //associação
 
