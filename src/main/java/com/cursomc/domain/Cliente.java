@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -33,7 +34,7 @@ public class Cliente implements Serializable {
 	private Integer tipo;
 	//seriazlizar os endereços dos cliente na pesquisa json
 	
-	@OneToMany(mappedBy="cliente")
+	@OneToMany(mappedBy="cliente", cascade=CascadeType.ALL)//pode refletir em cascata exclui endereco tb
 	private List<Endereco> enderecos = new ArrayList<>();
 	
 	//PARA TELEFONE VOU USARA UMA COLEÇÃO DO TIPO SET QUE NAO ACEITA REPETICAO
