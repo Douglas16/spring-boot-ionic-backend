@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.cursomc.domain.Categoria;
 import com.cursomc.domain.Cliente;
 import com.cursomc.dto.ClienteDTO;
+import com.cursomc.dto.ClienteNewDTO;
 import com.cursomc.services.ClienteService;
 
 import javassist.tools.rmi.ObjectNotFoundException;
@@ -57,6 +59,18 @@ public class ClienteResource {
 		 return ResponseEntity.noContent().build();
 			
 	     }
+	
+	@RequestMapping(method=RequestMethod.POST)
+	public ResponseEntity<Void> insert(@Valid @RequestBody ClienteNewDTO objDto){
+		Cliente obj = service.fromDTO(objDto);
+		obj = service.insert(obj); //chama obj e inseri com novo id
+		
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}").buildAndExpand(obj.getId()).toUri();
+		
+		return ResponseEntity.created(uri).build();
+				
+	}
 
 
 	@RequestMapping(value="/{id}",method=RequestMethod.DELETE) //find id pois recebe um id na url
