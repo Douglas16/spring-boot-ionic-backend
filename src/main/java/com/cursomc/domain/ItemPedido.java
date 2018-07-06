@@ -120,6 +120,12 @@ public boolean equals(Object obj) {
 	return true;
 }
 
+public double getSubTotal() {
+	
+	//coloca o get para que seja conehcido pelo JSON e serializado
+	
+	return (preco - desconto) * quantidade;
+}
 
 	
 }
