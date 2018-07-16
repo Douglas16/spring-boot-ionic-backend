@@ -38,7 +38,7 @@ public class PedidoResource {
 	
 	//usar a classe pedido mesmo sm o DTO
 	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<Void> insert(@Valid @RequestBody Pedido obj){
+	public ResponseEntity<Void> insert(@Valid @RequestBody Pedido obj) throws ObjectNotFoundException{
 		
 		obj = service.insert(obj); //chama obj e inseri com novo id
 		
