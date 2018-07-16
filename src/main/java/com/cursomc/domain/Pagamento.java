@@ -13,9 +13,11 @@ import javax.persistence.OneToOne;
 import com.cursomc.domain.enums.EstadoPagamento;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED) //herançade dados superclass
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "@type") //campo adicional
 public abstract class Pagamento implements Serializable {
 	//ABSTRACT PARA NAO INSTANCIAR O PAGAMENTO E SIM A SUBCLASSE
 	private static final long serialVersionUID = 1L;
