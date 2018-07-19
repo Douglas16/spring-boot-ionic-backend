@@ -60,7 +60,7 @@ public class DBService {
 	@Autowired
 	private ItemPedidoRepository itemPedidoRepository;
 	
-	public void instatiateTestDatabase() throws ParseException {
+	public void instantiateTestDatabase() throws ParseException {
 		
 		// TODO Auto-generated method stub
 				Categoria cat1 = new Categoria(null, "Informática");
